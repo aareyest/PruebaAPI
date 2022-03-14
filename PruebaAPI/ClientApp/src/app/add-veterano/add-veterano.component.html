@@ -1,0 +1,64 @@
+<h3>{{title}}</h3>
+
+
+<form [formGroup]="veteranoForm" (ngSubmit)="saveVe()" #formDir="ngForm" novalidate>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Dui</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="dui">
+    </div>
+    <span class="text-danger" *ngIf="dui?.invalid && formDir.submitted">
+      Dui is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Carnet</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="carnet">
+    </div>
+    <span class="text-danger" *ngIf="carnet?.invalid && formDir.submitted">
+      Carnet is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Primer Nombre</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="nombre">
+    </div>
+    <span class="text-danger" *ngIf="nombre?.invalid && formDir.submitted">
+      Primer Nombre is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Segundo Nombre</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="nombre2">
+    </div>
+    <span class="text-danger" *ngIf="nombre2?.invalid && formDir.submitted">
+      Segundo Nombre is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Primer Apellido</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="apellido">
+    </div>
+    <span class="text-danger" *ngIf="apellido?.invalid && formDir.submitted">
+      Primer Apellido is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Segundo Apellido</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="apellido2">
+    </div>
+    <span class="text-danger" *ngIf="apellido2?.invalid && formDir.submitted">
+      Segundo Apellido is required.
+    </span>
+  </div>
+
+    <button type="submit" class=" btn btn-primary btn-sm ba">Guardar</button>
+    <button class="btn btn-secondary  btn-sm" (click)="cancelVe()">Cancelar</button>
+
+</form>

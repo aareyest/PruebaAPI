@@ -1,0 +1,36 @@
+<div class="row mt-3">
+  <div class="col-lg-6">
+    <h4>Listado de Beneficios</h4>
+  </div>
+  <div class="col-lg-6 ba">
+    <button class="btn btn-primary btn-sm" [routerLink]="['/register-beneficio']">Agregar Nuevo</button>
+  </div>
+</div>
+
+<table class='table table-hover mt-3' *ngIf="beList.length > 0">
+  <thead>
+    <tr> 
+      <td><b>ID</b></td>
+      <td><b>Nombre</b></td>
+      <td><b>Descripcion</b></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let be of beList">
+      <td>{{ be.idbeneficios }}</td>
+      <td>{{ be.nombre }}</td>
+      <td>{{ be.descripcion }}</td>
+      <td style="width: 10%;" class="ba">
+        <button [routerLink]="['/beneficio/edit/', be.idbeneficios]" class="btn btn-primary btn-sm ba">Editar</button>
+      </td>
+      <td style="width: 10%;" class="ba">
+        <button [routerLink]="" (click)="delete(be.idbeneficios)" class="btn btn-danger btn-sm ba">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="beList.length == 0" class="row mt-5">
+  <h5>No hay veteranos para mostrar</h5>
+</div>

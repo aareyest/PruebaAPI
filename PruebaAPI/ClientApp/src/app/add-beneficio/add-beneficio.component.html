@@ -1,0 +1,28 @@
+<h3>{{title}}</h3>
+
+
+<form [formGroup]="beneficioForm" (ngSubmit)="saveBe()" #formDir="ngForm" novalidate>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Nombre</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="nombre">
+    </div>
+    <span class="text-danger" *ngIf="nombre?.invalid && formDir.submitted">
+      Nombre is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Descripcion</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="descripcion">
+    </div>
+    <span class="text-danger" *ngIf="descripcion?.invalid && formDir.submitted">
+      Descripcion is required.
+    </span>
+  </div>
+  
+   <button type="submit" class="btn btn-primary btn-sm ba">Guardar</button>
+   <button class="btn btn-secondary btn-sm" (click)="cancel()">Cancelar</button>
+
+</form>

@@ -1,0 +1,46 @@
+<!-- <p *ngIf="!veList"><em>Loading...</em></p> -->
+
+<div class="row mt-3">
+  <div class="col-lg-6">
+    <h4>Listado de Beneficios</h4>
+  </div>
+  <div class="col-lg-6 ba">
+    <button class="btn btn-primary btn-sm" [routerLink]="['/register-veterano']">Agregar Nuevo</button>
+  </div>
+</div>
+
+<table *ngIf="veList.length > 0" class="table table-hover mt-3">
+  <thead>
+    <tr>
+      <td><b>ID</b></td>
+      <td><b>Dui</b></td>
+      <td><b>Carnet</b></td>
+      <td><b>Primer Nombre</b></td>
+      <td><b>Segundo Nombre</b></td>
+      <td><b>Primer Apellido</b></td>
+      <td><b>Segundo Apellido</b></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ve of veList">
+      <td>{{ ve.idveterano }}</td>
+      <td>{{ ve.dui }}</td>
+      <td>{{ ve.carnet }}</td>
+      <td>{{ ve.nombre }}</td>
+      <td>{{ ve.nombre2 }}</td>
+      <td>{{ ve.apellido }}</td>
+      <td>{{ ve.apellido2 }}</td>
+      <td style="width: 10%;" class="ba">
+      <button [routerLink]="['/veterano/edit/', ve.idveterano]" class="btn btn-primary btn-sm float-end">Editar</button>
+      </td>
+      <td style="width: 10%;" class="ba">
+        <button [routerLink]="" (click)="delete(ve.idveterano)" class="btn btn-danger btn-sm float-end">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="veList.length == 0" class="row mt-5">
+  <h5>No hay beneficios para mostrar</h5>
+</div>
